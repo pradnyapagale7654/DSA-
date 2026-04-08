@@ -17,7 +17,7 @@ void addedge(int u,int v){
 
 }
 void dfsh(int u,vector<bool>&vis){
-cout<<u;
+cout<<u<<" ";
 vis[u]=true;
 for(int x:l[u]){
     if(!vis[x]){
@@ -25,11 +25,7 @@ for(int x:l[u]){
     }
 }
 }
-void dfs(){
-int src=0;
-vector<bool>vis(v,false);
-dfsh(src,vis);
-}
+
 void print(){
     for(int i=0;i<v;i++){
         cout<<i<<":";
@@ -42,11 +38,13 @@ void print(){
 };
 int main(){
     int vertices,edges;
+    int src=0;
    cout<<"enter no of vertices:";
    cin>>vertices;
    cout<<"\n enter no of edges:";
    cin>>edges;
    int u,v;
+    vector<bool>vis(vertices,false);
   graph g(vertices);
   cout<<"Enter edges (u v):"<<endl;
   for(int i=0;i<edges;i++){
@@ -54,7 +52,7 @@ int main(){
     g.addedge(u,v);
 }
     g.print();
-    cout<<"bfs:";
-    g.dfs();
+    cout<<"dfs:";
+    g.dfsh(src,vis);
     return 0;
 }
