@@ -40,6 +40,21 @@ void inorder(node* root){
     cout << root->data << " "; // root
     inorder(root->right);     // right
 }
+// iterative search
+bool searchIterative(node* root, int key) {
+    node* temp = root;
+
+    while (temp != NULL) {
+        if (temp->data == key)
+            return true;
+        else if (key < temp->data)
+            temp = temp->left;
+        else
+            temp = temp->right;
+    }
+
+    return false;
+}
 int main(){
     vector<int>arr={3,6,1,8,9};
     node*bst=buildbst(arr);
