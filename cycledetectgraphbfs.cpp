@@ -37,7 +37,7 @@ bool iscyclebfs(int src,vector<bool>&vis){
 }
 bool iscycle(){
     vector<bool>vis(v,false);
-    for(int i=0;i<v;i++){
+    for(int i=0;i<v;i++){  //check all components Because graph may be disconnected
        if(!vis[i]){
         if(iscyclebfs(i,vis)){
             return true;

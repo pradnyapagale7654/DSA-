@@ -1,46 +1,30 @@
 #include<iostream>
 #include<vector>
+#include<unordered_map>
 using namespace std;
-class node{
+class solution{
     public:
-    node*left;
-    node*right;
-    int data;
-    node(int val){
-      data=val;
-      left=right=NULL;
+vector<int>pairsum(vector<int>&arr,int tar){
+   unordered_map<int,int>m;
+   int n=arr.size();
+   for(int i=0;i<n;i++){
+      int first=arr[i];
+      int sec=tar-first;
+      if(m.find(sec)!=m.end()){
+        return {i,m[sec]};
+      }
+      m[first]=i;
+   }
+   return {};
     }
-  };
-  static int idx=-1;
-node*buildtree(vector<int>preorder){
- idx++;
- if(preorder[idx]==-1){
-  return NULL;
- }
- node*root=new node(preorder[idx]);
- root->left=buildtree(preorder);
- root->right=buildtree(preorder);
- return root;
-}
-void inordertraversal(node*root){
-    if(root==NULL){
-        return ;
-    }
-    inordertraversal(root->left);
-    cout<<root->data;
-    inordertraversal(root->right);
-}
-int count(node*root){
-    if(root==NULL){
-        return 0;
-    }
-    return count(root->left)+count(root->right)+1;
-}
+};
 int main(){
-    vector<int>preorder={1,2,-1,-1,3,-1,-1};
-    node*root=buildtree(preorder);
-    inordertraversal(root);
-    int totalnodes=count(root);
-    cout<<"total no of nodes:"<<totalnodes;
+    solution s;
+    vector<int>arr={1,6,2,8,4};
+    int tar=12;
+    vector<int>result=s.pairsum(arr,tar);
+    for(int i=0;i<result.size();i++){
+        cout<<result[i];
+    }
     return 0;
-  }
+}
