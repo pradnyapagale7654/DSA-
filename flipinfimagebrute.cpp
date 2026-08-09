@@ -7,7 +7,7 @@ public:
     vector<vector<int>> flipAndInvertImage(vector<vector<int>>& image) {
         int n=image.size();
         vector<vector<int>>ans(n,vector<int>(n));  //image[i] → entire row
-     //image[i][j] → one element
+     //image[i][j] → one element   also if vector is not passd like only ans(n) still works
         for(int i=0;i<n;i++){
             reverse(image[i].begin(),image[i].end());  // reverse each row
             ans[i]=image[i];  // after reverse ans store keli
