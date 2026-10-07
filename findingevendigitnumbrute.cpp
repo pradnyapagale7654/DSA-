@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 class solution
 {
@@ -32,6 +33,8 @@ public:
                 }
             }
         }
+        sort(ans.begin(), ans.end());
+        ans.erase(unique(ans.begin(), ans.end()), ans.end()); // remove duplicates
         return ans;
     }
 };
