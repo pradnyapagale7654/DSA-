@@ -28,7 +28,7 @@ public:
                     {
                         continue; // skip if same index
                     }
-                    int num = digits[i] * 100 + digits[j] * 10 + digits[k]; // form the number
+                    int num = digits[k] * 100 + digits[j] * 10 + digits[i]; // form the number
                     ans.push_back(num);                                     // add to answer
                 }
             }
